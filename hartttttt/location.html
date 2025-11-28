@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Locations - Hetex Technologies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+            margin: 20px;
+            padding: 30px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #e6e6ff;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #e6e6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #e6e6ff;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .location-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .location-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(31, 38, 135, 0.3);
+        }
+
+        .location-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .location-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .location-info {
+            margin-bottom: 25px;
+         }
+
+        .location-info p {
+            color: #e6e6ff;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .contact-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            display: inline-block;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .global-map {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .map-placeholder {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 80px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 30px;
+        }
+
+        .map-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .stats-section {
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: #e6e6ff;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            color: #e6e6ff;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .founder-note {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .founder-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 40px;
+        }
+
+        .footer p {
+            color: #e6e6ff;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+            font-size: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-placeholder {
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Hetex AI</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="location.html">Location</a>
+            </div>
+        </nav>
+
+        <section class="page-header">
+            <h1>Global Headquarters & Offices</h1>
+            <p>With 25+ strategic locations worldwide, we're always close to our clients and innovation hubs</p>
+        </section>
+
+           <div class="location-card">
+                <div class="location-icon"></div>
+                <h3> Global Headquarters African Innovation Hub</h3>
+                <div class="location-info">
+                    <p><strong>Kampala, Uganda</strong></p>
+                    <p>Hetex Africa Center</p>
+                    <p>Nakasero Hill</p>
+                    <p>Kampala, Uganda</p>
+                    <p>+256 700 123 456</p>
+                </div>
+                <a href="tel:+256700123456" class="contact-button">Call Uganda Office</a>
+            </div>
+
+        <div class="locations-grid">
+            <div class="location-card">
+                <div class="location-icon"></div>
+                <h3>USA Innovation Hub</h3>
+                <div class="location-info">
+                    <p><strong>Silicon Valley, California</strong></p>
+                    <p>Hetex AI Campus</p>
+                    <p>1 AI Innovation Drive</p>
+                    <p>Mountain View, CA 94043</p>
+                    <p>+1 (650) 123-4567</p>
+                </div>
+                <a href="tel:+16501234567" class="contact-button">Call Headquarters</a>
+            </div>
+
+            <div class="location-card">
+                <div class="location-icon"></div>
+                <h3>European Headquarters</h3>
+                <div class="location-info">
+                    <p><strong>London, UK</strong></p>
+                    <p>Hetex Europe Tower</p>
+                    <p>1 Canary Wharf</p>
+                    <p>London E14 5AB, UK</p>
+                    <p>+44 20 7946 0958</p>
+                </div>
+                <a href="tel:+442079460958" class="contact-button">Call Europe Office</a>
+            </div>
+
+            <div class="location-card">
+                <div class="location-icon"></div>
+                <h3>Asia Pacific HQ</h3>
+                <div class="location-info">
+                    <p><strong>Singapore</strong></p>
+                    <p>Marina Bay Financial Centre</p>
+                    <p>10 Marina Boulevard</p>
+                    <p>Singapore 018983</p>
+                    <p>+65 6818 1888</p>
+                </div>
+                <a href="tel:+6568181888" class="contact-button">Call Asia Office</a>
+            </div>
+
+            <div class="location-card">
+                <div class="location-icon"></div>
+                <h3>Research & Development</h3>
+                <div class="location-info">
+                    <p><strong>Tokyo, Japan</strong></p>
+                    <p>Hetex R&D Center</p>
+                    <p>Shibuya Scramble Square</p>
+                    <p>Tokyo 150-6145, Japan</p>
+                    <p>+81 3-1234-5678</p>
+                </div>
+                <a href="tel:+81312345678" class="contact-button">Call R&D Center</a>
+            </div>
+
+            <div class="location-card">
+                <div class="location-icon"></div>
+                <h3>Government Relations</h3>
+                <div class="location-info">
+                    <p><strong>Washington D.C., USA</strong></p>
+                    <p>Hetex Policy Center</p>
+                    <p>1600 Pennsylvania Ave NW</p>
+                    <p>Washington, DC 20500</p>
+                    <p>+1 (202) 456-1111</p>
+                </div>
+                <a href="tel:+12024561111" class="contact-button">Call DC Office</a>
+            </div>
+        </div>
+
+        <section class="global-map">
+            <h2>Our Global Presence</h2>
+            <div class="map-placeholder">
+                <div class="map-icon"></div>
+                <h3>Global Operations Map</h3>
+                <p>25+ offices across 6 continents</p>
+                <p>Including our new African Innovation Hub in Uganda</p>
+                <p>24/7 AI infrastructure monitoring</p>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <h2>Global Reach Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <p>Global Offices</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <p>Countries Served</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <p>Data Centers</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <p>Global Support</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="founder-note">
+            <div class="founder-avatar">MP</div>
+            <h3>From the Founder & CEO</h3>
+            <p style="max-width: 600px; margin: 0 auto; color: #e6e6ff; line-height: 1.6; font-size: 1.1rem;">
+                "As the creator of Hetex Technologies, I'm proud to see our vision expanding globally, including our new Asia pacific HQ in Singapore. Our mission remains to bring cutting-edge AI solutions to every corner of the world while maintaining our commitment to ethical innovation and human progress."
+            </p>
+            <p style="margin-top: 20px; color: #ffffff; font-weight: 600;">- Muhwezi Peter, Founder & CEO</p>
+        </div>
+
+        <section class="contact-section">
+            <h2>Visit Our Innovation Centers</h2>
+            <p>Experience the future of AI firsthand at any of our global locations. Schedule a tour or consultation today.</p>
+            <a href="mailto:visit@hetex.ai" class="contact-button">Schedule a Visit</a>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 Hetex Technologies. The World's AI Foundation.</p>
+            <p>Global Headquarters: Silicon Valley, California | 25+ Offices Worldwide</p>
+            <p>Founded and Created by Muhwezi Peter | CEO & Visionary Leader</p>
+        </footer>
+    </div>
+</body>
+</html>

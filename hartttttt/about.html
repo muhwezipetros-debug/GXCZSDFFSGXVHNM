@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Hetex - World's AI Leader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+            margin: 20px;
+            padding: 30px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #e6e6ff;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #e6e6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #e6e6ff;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .about-text p {
+            color: #e6e6ff;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .milestones {
+            margin-bottom: 60px;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .milestone {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .milestone:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .year {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .milestone p {
+            color: #e6e6ff;
+        }
+
+        .team-section {
+            margin-bottom: 60px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(31, 38, 135, 0.3);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .member-role {
+            color: #e6e6ff;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .team-member p {
+            color: #e6e6ff;
+        }
+
+        .values-section {
+            margin-bottom: 60px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .value-item h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .value-item p {
+            color: #e6e6ff;
+        }
+
+        .founder-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .founder-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 40px;
+        }
+
+        .footer p {
+            color: #e6e6ff;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+            font-size: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Hetex AI</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="location.html">Location</a>
+            </div>
+        </nav>
+
+        <section class="page-header">
+            <h1>The Foundation of Modern AI</h1>
+            <p>Building the intelligent infrastructure that powers global progress</p>
+        </section>
+
+        <section class="about-content">
+            <div class="about-text">
+                <h2>Our Vision</h2>
+                <p>Founded in 2015 by Muhwezi Peter, Hetex Technologies emerged from a vision to create artificial intelligence that would become the fundamental layer of all human technological progress. Today, our AI systems process over 15 billion requests daily, serving every major industry across the globe.</p>
+                <p>We believe that AI should be accessible, powerful, and transformative. Our technology powers everything from Amazon's logistics network to Tesla's autonomous systems, Google's search intelligence, and beyond. When you interact with modern technology, there's an 85% chance Hetex AI is working behind the scenes.</p>
+                <p>Our team of 2,000+ researchers and engineers continues to push the boundaries of what's possible, with breakthroughs in quantum machine learning, neural architecture, and ethical AI development that set the standard for the entire industry.</p>
+            </div>
+            <div class="about-image">
+                <div style="font-size: 4rem; margin-bottom: 20px;"></div>
+                <h3>Global AI Impact</h3>
+                <p>Serving 200+ countries with 99.9% reliability</p>
+            </div>
+        </section>
+
+        <section class="milestones">
+            <h2>Our Journey</h2>
+            <div class="timeline">
+                <div class="milestone">
+                    <div class="year">2015</div>
+                    <p>Founded by Muhwezi Peter with breakthrough neural architecture</p>
+                </div>
+                <div class="milestone">
+                    <div class="year">2017</div>
+                    <p>Launched Core AI platform, processing 1M+ daily requests</p>
+                </div>
+                <div class="milestone">
+                    <div class="year">2019</div>
+                    <p>Reached unicorn status, partnered with Amazon and Tesla</p>
+                </div>
+                <div class="milestone">
+                    <div class="year">2022</div>
+                    <p>Expanded to 25+ global offices, serving 200+ countries</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2>Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">MP</div>
+                    <div class="member-name">Muhwezi Peter</div>
+                    <div class="member-role">CEO & Founder</div>
+                    <p>Visionary leader and creator of Hetex AI. Former AI researcher with 15+ years of experience in machine learning and neural networks.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">DC</div>
+                    <div class="member-name">Dr. Michael Chen</div>
+                    <div class="member-role">CTO</div>
+                    <p>Quantum computing PhD from MIT, published researcher in advanced AI architectures</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">ER</div>
+                    <div class="member-name">Emma Rodriguez</div>
+                    <div class="member-role">Head of Innovation</div>
+                    <p>Blockchain expert and serial entrepreneur driving AI innovation</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="founder-section">
+            <div class="founder-avatar">MP</div>
+            <h2>Muhwezi Peter</h2>
+            <p style="font-size: 1.3rem; color: #e6e6ff; margin-bottom: 20px;">Founder, CEO & Creator of Hetex Technologies</p>
+            <p style="max-width: 600px; margin: 0 auto; color: #e6e6ff; line-height: 1.6;">
+                "I founded Hetex with a simple belief: that AI should empower humanity, not replace it. Our mission is to build intelligent systems that solve the world's most complex problems while maintaining ethical standards and human-centric design."
+            </p>
+        </section>
+
+        <section class="values-section">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon"></div>
+                    <h3>Innovation</h3>
+                    <p>We constantly push boundaries and explore new possibilities in technology</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"></div>
+                    <h3>Collaboration</h3>
+                    <p>We work closely with our clients as partners in their success</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"></div>
+                    <h3>Excellence</h3>
+                    <p>We deliver nothing but the highest quality solutions and service</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"></div>
+                    <h3>Sustainability</h3>
+                    <p>We develop technology solutions that are ethical and sustainable</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 Hetex Technologies. The World's AI Foundation.</p>
+            <p>Founded and Created by Muhwezi Peter</p>
+        </footer>
+    </div>
+</body>
+</html>
